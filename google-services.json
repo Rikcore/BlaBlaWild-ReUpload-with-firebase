@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "529065964452",
+    "firebase_url": "https://blablawild-14a2b.firebaseio.com",
+    "project_id": "blablawild-14a2b",
+    "storage_bucket": "blablawild-14a2b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:529065964452:android:021b278ffaf3ad01",
+        "android_client_info": {
+          "package_name": "wildsas.blablawild"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "529065964452-j77u5e1v9iftmkhd759fofccaelaf39d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC2NsCI3yj51No7MjzJ6GKKcCHg-y4IjCc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
