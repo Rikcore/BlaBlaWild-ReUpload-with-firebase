@@ -28,6 +28,7 @@ public class SubmitItineraryActivity extends AppCompatActivity {
 
     FirebaseDatabase itineraryDatabase;
     DatabaseReference refItinerary;
+    DatabaseReference details;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,9 +40,6 @@ public class SubmitItineraryActivity extends AppCompatActivity {
         mPrice = (EditText)findViewById(R.id.editTextPrice);
         mDate = (EditText)findViewById(R.id.editTextDate);
         buttonValider = (Button)findViewById(R.id.buttonValider);
-
-
-        itineraryDatabase = FirebaseDatabase.getInstance();
 
 
 
@@ -56,15 +54,20 @@ public class SubmitItineraryActivity extends AppCompatActivity {
                 int price = Integer.parseInt(mPrice.getText().toString());
                 String strDate = mDate.getText().toString();
 
+                itineraryDatabase = FirebaseDatabase.getInstance();
+
                 refItinerary = itineraryDatabase.getReference(departure+"-"+destination);
 
-                ItineraryModel newItinerary = new ItineraryModel(strDate, price, departure, destination);
+                DatabaseReference newItinerary = refItinerary.push();
+
+
+                ItineraryModel newPurpose = new ItineraryModel(strDate, price, departure, destination);
 
                 Map<String, ItineraryModel> ItineraryModelResult = new HashMap<>();
-                ItineraryModelResult.put("Données", newItinerary);
+                ItineraryModelResult.put(newPurpose.getDriverFirstName(), newPurpose);
 
 
-                refItinerary.setValue(ItineraryModelResult);
+                newItinerary.setValue(ItineraryModelResult);
             }
         });
 
