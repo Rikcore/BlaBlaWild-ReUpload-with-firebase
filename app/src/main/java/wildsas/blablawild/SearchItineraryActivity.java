@@ -49,7 +49,7 @@ public class SearchItineraryActivity extends AppCompatActivity {
 
             private void updateLabel() {
 
-                String myFormat = "MM/dd/yy"; //In which you need put here
+                String myFormat = "MM/dd/yy";
                 SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
 
                 mEditText3.setText(sdf.format(myCalendar.getTime()));

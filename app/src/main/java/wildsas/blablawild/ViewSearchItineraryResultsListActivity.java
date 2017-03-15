@@ -6,13 +6,23 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 public class ViewSearchItineraryResultsListActivity extends AppCompatActivity {
+
+    private DatabaseReference mDatabase;
+    TextView departureTime;
+    TextView firstName;
+    TextView price;
+    ListView itemsListView;
 
 
     @Override
@@ -29,27 +39,15 @@ public class ViewSearchItineraryResultsListActivity extends AppCompatActivity {
 
 
 
-        //// LIST ////
-
-        final ArrayList<TripResultModel> TripResultList = new ArrayList<>(); // calls function to get items list
+        // LISTVIEW //
 
 
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy-hh:mm");
-        try {
-            TripResultList.add(new TripResultModel("Bruce", sdf.parse("21/02/2017-15:30"), 15));
-            TripResultList.add(new TripResultModel("Clark", sdf.parse("21/02/2017-16:00"), 20));
-            TripResultList.add(new TripResultModel("Bary", sdf.parse("21/02/2017-16:30"), 16));
-            TripResultList.add(new TripResultModel("Lex", sdf.parse("21/02/2017-17:00"), 40));
-        } catch (ParseException e) {
+        mDatabase = FirebaseDatabase.getInstance().getReference();
 
+        TripResultAdapter mTripResultAdapter = new TripResultAdapter(mDatabase, this, R.layout.trip_item );
 
-        }
-        // instantiate the custom list adapter
-        final TripResultAdapter resultAdapter = new TripResultAdapter(this, TripResultList);
-
-        // get the ListView and attach the adapter
-        ListView itemsListView = (ListView) findViewById(R.id.listViewResult);
-        itemsListView.setAdapter(resultAdapter);
+        itemsListView = (ListView) findViewById(R.id.listViewResult);
+        itemsListView.setAdapter(mTripResultAdapter);
     }
 
 }

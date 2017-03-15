@@ -2,9 +2,7 @@ package wildsas.blablawild;
 
 import java.util.Date;
 
-/**
- * Created by apprenti on 13/03/17.
- */
+
 
 public class ItineraryModel {
 
@@ -58,5 +56,33 @@ public class ItineraryModel {
 
     public String getDestination() {
         return mDestination;
+    }
+
+    public void setmID(int mID) {
+        this.mID = mID;
+    }
+
+    public void setDriverLastName(String mDriverLastName) {
+        this.mDriverLastName = mDriverLastName;
+    }
+
+    public void setDriverFirstName(String mDriverFirstName) {
+        this.mDriverFirstName = mDriverFirstName;
+    }
+
+    public void setDepartureDate(String mDepartureDate) {
+        this.mDepartureDate = mDepartureDate;
+    }
+
+    public void setPrice(int mPrice) {
+        this.mPrice = mPrice;
+    }
+
+    public void setmeparture(String mDeparture) {
+        this.mDeparture = mDeparture;
+    }
+
+    public void setDestination(String mDestination) {
+        this.mDestination = mDestination;
     }
 }
