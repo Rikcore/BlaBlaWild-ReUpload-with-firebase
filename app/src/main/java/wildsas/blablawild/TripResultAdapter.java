@@ -28,7 +28,6 @@ public class TripResultAdapter extends FirebaseListAdapter<ItineraryModel> {
 
     @Override
     protected void populateView(View view, ItineraryModel newPurpose) {
-        // Map a Chat object to an entry in our listview
 
 
         departureDate = (TextView)view.findViewById(R.id.textViewDepartureTime);

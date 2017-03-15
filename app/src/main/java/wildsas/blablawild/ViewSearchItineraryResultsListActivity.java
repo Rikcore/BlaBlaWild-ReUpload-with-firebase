@@ -19,9 +19,6 @@ import java.util.ArrayList;
 public class ViewSearchItineraryResultsListActivity extends AppCompatActivity {
 
     private DatabaseReference mDatabase;
-    TextView departureTime;
-    TextView firstName;
-    TextView price;
     ListView itemsListView;
 
 
@@ -42,12 +39,12 @@ public class ViewSearchItineraryResultsListActivity extends AppCompatActivity {
         // LISTVIEW //
 
 
-        mDatabase = FirebaseDatabase.getInstance().getReference();
+        mDatabase = FirebaseDatabase.getInstance().getReference("Itineraries"); // APPELLE LA BASE DE DONNEES
 
-        TripResultAdapter mTripResultAdapter = new TripResultAdapter(mDatabase, this, R.layout.trip_item );
+        TripResultAdapter mTripResultAdapter = new TripResultAdapter(mDatabase, this, R.layout.trip_item ); // APPELLE L'ADAPTER
 
-        itemsListView = (ListView) findViewById(R.id.listViewResult);
-        itemsListView.setAdapter(mTripResultAdapter);
+        itemsListView = (ListView) findViewById(R.id.listViewResult); //APPELLE LA LISTE .XML
+        itemsListView.setAdapter(mTripResultAdapter); //FUSION LIST ET ADAPTER
     }
 
 }

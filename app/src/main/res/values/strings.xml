@@ -6,6 +6,8 @@
     <string name="destination">Destination</string>
     <string name="date">Date</string>
     <string name="renseigner">Merci de renseigner un départ et une destination.</string>
+    <string name="renseignerPrix">Merci de renseigner un départ, une destination, ainsi qu\'un prix.</string>
+    <string name="itineraireOK">Itinéraire enregistré !</string>
     <string name="rechercheraccueil">Rechercher un itinéraire.</string>
     <string name="fleches">»</string>
     <string name="felicitations">Félicitations tu vas t\'échapper de</string>

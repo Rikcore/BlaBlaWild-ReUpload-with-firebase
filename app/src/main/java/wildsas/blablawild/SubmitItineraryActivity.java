@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -55,7 +56,7 @@ public class SubmitItineraryActivity extends AppCompatActivity {
 
             private void updateLabel() {
 
-                String myFormat = "MM/dd/yy";
+                String myFormat = "dd/MM/yy";
                 SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
 
                 mDate.setText(sdf.format(myCalendar.getTime()));
@@ -90,23 +91,33 @@ public class SubmitItineraryActivity extends AppCompatActivity {
 
 
         buttonValider.setOnClickListener(new View.OnClickListener() {
-            @TargetApi(Build.VERSION_CODES.N)
-            @RequiresApi(api = Build.VERSION_CODES.N)
-            @Override
+
             public void onClick(View v) {
-                String departure = mEditTextDeparture.getText().toString();
-                String destination = mEditTextDestination.getText().toString();
-                int price = Integer.parseInt(mPrice.getText().toString());
-                String strDate = mDate.getText().toString();
 
-                itineraryDatabase = FirebaseDatabase.getInstance();
-                refItinerary = itineraryDatabase.getReference();
+                if (mEditTextDeparture.length() == 0 || mEditTextDestination.length() == 0 || mPrice.length() == 0)
+                {
+                    Toast.makeText(SubmitItineraryActivity.this, getString(R.string.renseignerPrix),
+                            Toast.LENGTH_LONG).show();
+                }
+                else {
 
+                    Toast.makeText(SubmitItineraryActivity.this, getString(R.string.itineraireOK),
+                            Toast.LENGTH_LONG).show();
 
+                    String departure = mEditTextDeparture.getText().toString();
+                    String destination = mEditTextDestination.getText().toString();
+                    int price = Integer.parseInt(mPrice.getText().toString());
+                    String strDate = mDate.getText().toString();
 
-                ItineraryModel newPurpose = new ItineraryModel(strDate, price, departure, destination);
+                    itineraryDatabase = FirebaseDatabase.getInstance(); //APPELLE LA BASE DE DONNEES
+                    refItinerary = itineraryDatabase.getReference("Itineraries");
 
-                refItinerary.push().setValue(newPurpose);
+                    ItineraryModel newPurpose = new ItineraryModel(strDate, price, departure, destination); //INSTANCIE UN OBJET DE LA CLASSE
+
+                    refItinerary.push().setValue(newPurpose);
+
+                    finish();
+                }//PUSH LES DONNEES
             }
         });
 
