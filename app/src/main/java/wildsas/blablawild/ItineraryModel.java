@@ -58,7 +58,7 @@ public class ItineraryModel {
         return mDestination;
     }
 
-    public void setmID(int mID) {
+    public void setID(int mID) {
         this.mID = mID;
     }
 
