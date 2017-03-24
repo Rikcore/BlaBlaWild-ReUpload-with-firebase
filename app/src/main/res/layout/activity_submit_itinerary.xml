@@ -10,7 +10,7 @@
         android:id="@+id/textViewDeparture"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Depart"
+        android:text="@string/depart"
         tools:layout_editor_absoluteX="16dp"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="8dp" />
@@ -29,7 +29,7 @@
         android:id="@+id/textViewDestination"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Destination"
+        android:text="@string/destination"
         tools:layout_editor_absoluteX="16dp"
         android:layout_marginTop="8dp"
         app:layout_constraintTop_toBottomOf="@+id/editTextDeparture" />
@@ -48,7 +48,7 @@
         android:id="@+id/textViewPrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Prix"
+        android:text="@string/prix"
         tools:layout_editor_absoluteX="16dp"
         android:layout_marginTop="8dp"
         app:layout_constraintTop_toBottomOf="@+id/editTextDestination" />
@@ -67,7 +67,7 @@
         android:id="@+id/textViewDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Date"
+        android:text="@string/date"
         tools:layout_editor_absoluteX="16dp"
         android:layout_marginTop="8dp"
         app:layout_constraintTop_toBottomOf="@+id/editTextPrice" />
@@ -87,7 +87,7 @@
         android:id="@+id/buttonValider"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Valider"
+        android:text="@string/valider"
         tools:layout_editor_absoluteX="147dp"
         android:layout_marginTop="8dp"
         app:layout_constraintTop_toBottomOf="@+id/editTextDate" />
