@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "529065964452-ejshmfv8dhf9fua52ah5n6fvpc3i4qh6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "wildsas.blablawild",
+            "certificate_hash": "ca0c23fcb53f24857ed26b4934b9702553ab1be5"
+          }
+        },
+        {
           "client_id": "529065964452-j77u5e1v9iftmkhd759fofccaelaf39d.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -29,8 +37,13 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "529065964452-j77u5e1v9iftmkhd759fofccaelaf39d.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
           "status": 2

@@ -14,6 +14,8 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -34,6 +36,10 @@ public class SubmitItineraryActivity extends AppCompatActivity {
     FirebaseDatabase itineraryDatabase;
     DatabaseReference refItinerary;
 
+    private FirebaseAuth firebaseAuth;
+    private FirebaseUser user;
+
+
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +51,9 @@ public class SubmitItineraryActivity extends AppCompatActivity {
         mPrice = (EditText)findViewById(R.id.editTextPrice);
         mDate = (EditText)findViewById(R.id.editTextDate);
         buttonValider = (Button)findViewById(R.id.buttonValider);
+
+        firebaseAuth = FirebaseAuth.getInstance();
+
 
 
 
@@ -104,6 +113,10 @@ public class SubmitItineraryActivity extends AppCompatActivity {
                     Toast.makeText(SubmitItineraryActivity.this, getString(R.string.itineraireOK),
                             Toast.LENGTH_LONG).show();
 
+                    user = FirebaseAuth.getInstance().getCurrentUser();
+
+                    String mId = user.getUid();
+
                     String departure = mEditTextDeparture.getText().toString();
                     String destination = mEditTextDestination.getText().toString();
                     int price = Integer.parseInt(mPrice.getText().toString());
@@ -112,7 +125,7 @@ public class SubmitItineraryActivity extends AppCompatActivity {
                     itineraryDatabase = FirebaseDatabase.getInstance(); //APPELLE LA BASE DE DONNEES
                     refItinerary = itineraryDatabase.getReference("Itineraries");
 
-                    ItineraryModel newPurpose = new ItineraryModel(strDate, price, departure, destination); //INSTANCIE UN OBJET DE LA CLASSE
+                    ItineraryModel newPurpose = new ItineraryModel(strDate, price, departure, destination, mId); //INSTANCIE UN OBJET DE LA CLASSE
 
                     refItinerary.push().setValue(newPurpose);
 

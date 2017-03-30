@@ -6,7 +6,7 @@ import java.util.Date;
 
 public class ItineraryModel {
 
-    private int mID;
+    private String mID;
     private String mDriverLastName;
     private String mDriverFirstName;
     private String mDepartureDate;
@@ -19,18 +19,21 @@ public class ItineraryModel {
 
     }
 
-    public ItineraryModel(String departureDate, int price, String departure, String destination){
-        mID = 0;
-        mDriverLastName = "Cartman";
-        mDriverFirstName = "Eric";
+    public ItineraryModel(String departureDate, int price, String departure, String destination, String Id){
         mDepartureDate = departureDate;
         mPrice = price;
         mDeparture = departure;
         mDestination = destination;
+        mID = Id;
+        mDriverLastName = "Cartman";
+        mDriverFirstName = "Eric";
+
+
+
 
     }
 
-    public int getID() {
+    public String getID() {
         return mID;
     }
 
@@ -58,7 +61,7 @@ public class ItineraryModel {
         return mDestination;
     }
 
-    public void setID(int mID) {
+    public void setID(String mID) {
         this.mID = mID;
     }
 
