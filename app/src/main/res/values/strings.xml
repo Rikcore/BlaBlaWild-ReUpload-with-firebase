@@ -15,6 +15,16 @@
     <string name="felicitations">Félicitations tu vas t\'échapper de</string>
     <string name="le">le</string>
     <string name="valider">Valider</string>
+    <string name="Meconnecter">Me connecter // Mon profil</string>
+    <string name="CreationCompte">Creation de compte</string>
+    <string name="entrerEmail">Saisir votre email</string>
+    <string name="entrerPassword">Saisir votre mot de passe</string>
+    <string name="signUp">Creer mon compte</string>
+    <string name="already">Deja enregistré, connectez vous ici.</string>
+    <string name="unregistered">Pas encore enregistré ? crée un compte ici.</string>
+    <string name="userlogin">Connecte toi</string>
+    <string name="signIn">Connexion</string>
+    <string name="accueil">Accueil</string>
 
 
 </resources>

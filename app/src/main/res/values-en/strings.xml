@@ -16,4 +16,14 @@
     <string name="proposer">Itinerary purpose</string>
     <string name="prix">Price</string>
     <string name="valider">Ok</string>
+    <string name="CreationCompte">Account creation</string>
+    <string name="Meconnecter">Login // Profile</string>
+    <string name="accueil">Home</string>
+    <string name="entrerEmail">Enter email</string>
+    <string name="entrerPassword">Enter password</string>
+    <string name="signIn">Sign in</string>
+    <string name="signUp">Sign out</string>
+    <string name="unregistered">Unregistered, create first account here.</string>
+    <string name="already">Already registered, login here</string>
+    <string name="userlogin">User login</string>
 </resources>

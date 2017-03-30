@@ -28,14 +28,13 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginBottom="43dp"
-        android:text="Accueil" />
+        android:text="@string/accueil" />
 
     <TextView
         android:id="@+id/textViewUserEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:text="Large Text"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:layout_above="@+id/buttonLogout"
         android:layout_alignLeft="@+id/buttonLogout"
