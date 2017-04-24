@@ -28,7 +28,6 @@ public class ViewSearchItineraryResultsListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_search_itinerary_results_list);
 
-        Intent intentGoResults = getIntent();
         SearchRequestModel trajet = getIntent().getExtras().getParcelable(SearchItineraryActivity.EXTRA_TRAJET);
         this.setTitle(trajet.getmDepart() + " " + trajet.getmDestination());
 

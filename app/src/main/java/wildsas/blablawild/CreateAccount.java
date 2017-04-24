@@ -16,13 +16,18 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserProfileChangeRequest;
 
 public class CreateAccount extends AppCompatActivity implements View.OnClickListener {
 
     //defining view objects
     private EditText editTextEmail;
     private EditText editTextPassword;
+    private EditText editTextUsername;
     private Button buttonSignup;
+
+    private String username;
 
     private TextView textViewSignin;
 
@@ -53,6 +58,7 @@ public class CreateAccount extends AppCompatActivity implements View.OnClickList
         //initializing views
         editTextEmail = (EditText) findViewById(R.id.editTextEmail);
         editTextPassword = (EditText) findViewById(R.id.editTextPassword);
+        editTextUsername = (EditText) findViewById(R.id.editTextUsername);
         textViewSignin = (TextView) findViewById(R.id.textViewSignin);
 
         buttonSignup = (Button) findViewById(R.id.buttonSignup);
@@ -69,6 +75,7 @@ public class CreateAccount extends AppCompatActivity implements View.OnClickList
         //getting email and password from edit texts
         String email = editTextEmail.getText().toString().trim();
         String password  = editTextPassword.getText().toString().trim();
+        username = editTextUsername.getText().toString().trim();
 
         //checking if email and passwords are empty
         if(TextUtils.isEmpty(email)){
@@ -94,8 +101,21 @@ public class CreateAccount extends AppCompatActivity implements View.OnClickList
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         //checking if success
                         if(task.isSuccessful()){
-                            finish();
-                            startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
+                            //LORS DE LA CREATION DU COMPTE, JE L'UPDATE EN Y AJOUTANT UN PSEUDO
+                            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                            UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
+                                    .setDisplayName(username)
+                                    .build();
+
+                            user.updateProfile(profileUpdates).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    if (task.isSuccessful()) {
+                                        finish();
+                                        startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
+                                    }
+                                }
+                            });
                         }else{
                             //display some message here
                             Toast.makeText(CreateAccount.this,"Registration Error",Toast.LENGTH_LONG).show();

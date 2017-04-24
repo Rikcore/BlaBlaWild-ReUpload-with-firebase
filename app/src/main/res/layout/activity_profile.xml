@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -31,14 +32,32 @@
         android:text="@string/accueil" />
 
     <TextView
-        android:id="@+id/textViewUserEmail"
+        android:id="@+id/textViewUsername"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
+        android:layout_marginTop="22dp"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:layout_above="@+id/buttonLogout"
-        android:layout_alignLeft="@+id/buttonLogout"
-        android:layout_alignStart="@+id/buttonLogout"
-        android:layout_marginBottom="118dp" />
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:id="@+id/imageViewUserImage"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_below="@+id/textViewUsername"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="35dp"
+        app:srcCompat="@drawable/green"
+        android:scaleType="centerCrop"/>
+
+    <Button
+        android:id="@+id/buttonUpload"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Upload ma photo"
+        android:layout_below="@+id/imageViewUserImage"
+        android:layout_alignLeft="@+id/imageViewUserImage"
+        android:layout_alignStart="@+id/imageViewUserImage" />
 
 </RelativeLayout>
